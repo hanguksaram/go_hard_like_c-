@@ -1,29 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace go_hard_like_javascript
 {
-    class Program
+    delegate void ArrayOfFunc(Func<string> func);
+    public static class Useless
     {
-        delegate void ArrayOfFunc(Func<string> func);
-        static void Main(string[] args)
-        {
-
-            ArrayOfFunc test1, test2, test3, test4, test5;
-
-            test1 = TestCars1;
-            test2 = TestCars2;
-            test3 = TestCars3;
-            test4 = TestCars4;
-            test5 = test1 + test2 + test3 + test4;
         
-            test5.Invoke(Console.ReadLine);
-            
-         }
-
         public static void TestCars1(Func<string> action)
         {
             Console.WriteLine("\nTestCars1");
@@ -33,7 +20,7 @@ namespace go_hard_like_javascript
             car1.DescribeCar();
             Console.WriteLine("----------");
 
-           
+
             ConvertibleCar car2 = new ConvertibleCar();
             car2.DescribeCar();
             Console.WriteLine("----------");
@@ -58,9 +45,9 @@ namespace go_hard_like_javascript
                 car.DescribeCar();
                 Console.WriteLine("----------");
             }
-            action(); 
+            action();
         }
-      
+
 
         public static void TestCars3(Func<string> action)
         {
@@ -72,7 +59,7 @@ namespace go_hard_like_javascript
             car3.ShowDetails();
             action();
         }
-     
+
 
         public static void TestCars4(Func<string> action)
         {
@@ -84,6 +71,23 @@ namespace go_hard_like_javascript
             car3.ShowDetails();
             action();
         }
+    }
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+
+            ArrayOfFunc funcFabric = null;
+            MethodInfo[] methodInfos = typeof(Useless)
+                          .GetMethods(BindingFlags.Static | BindingFlags.Public);
+
+            foreach (var method  in methodInfos) funcFabric += (ArrayOfFunc) Delegate.CreateDelegate(typeof(ArrayOfFunc), method, false);
+            
+            funcFabric.Invoke(Console.ReadLine);  
+               
+        }
+
        
     }
 
