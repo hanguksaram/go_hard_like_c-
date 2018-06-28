@@ -1,0 +1,7 @@
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\bin\Debug\curious csharp features.exe.config
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\bin\Debug\curious csharp features.exe
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\bin\Debug\curious csharp features.pdb
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\obj\Debug\curious csharp features.csprojAssemblyReference.cache
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\obj\Debug\curious csharp features.csproj.CoreCompileInputs.cache
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\obj\Debug\curious csharp features.exe
+C:\Users\artur\source\repos\curious csharp features\curious csharp features\obj\Debug\curious csharp features.pdb
